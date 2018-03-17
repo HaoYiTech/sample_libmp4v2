@@ -409,6 +409,9 @@ bool Csample_libmp4v2Dlg::doMP4ReadOneFrame(MP4FileHandle inFile, MP4TrackId tid
 	// 计算偏差时间 => CTTS => 刻度时间转换成毫秒...
 	nOffset *= UINT64_C( 1000 );
 	nOffset /= timescale;
+	// 帧持续时间 => 刻度时间转换成毫秒...
+	nDuration *= UINT64_C( 1000 );
+	nDuration /= timescale;
 
 	// 这里需要释放读取的缓冲区...
 	MP4Free(pSampleData);
